@@ -33,9 +33,9 @@ class Network(object):
             time2 = time.time()
             if test_data:
                 print("Epoch {0}: {1} / {2}, took {3:.2f} seconds".format(
-                    j, self.evaluate(test_data), n_test, time2-time1))
+                    j + 1, self.evaluate(test_data), n_test, time2-time1))
             else:
-                print("Epoch {0} complete in {1:.2f} seconds".format(j, time2-time1))
+                print("Epoch {0} complete in {1:.2f} seconds".format(j + 1, time2-time1))
 
     def update_mini_batch(self, mini_batch, eta):
         nabla_b = [np.zeros(b.shape) for b in self.biases]

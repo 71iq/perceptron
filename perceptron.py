@@ -1,7 +1,7 @@
 import numpy as np
 
 class Perceptron:
-    def __init__(self, learning_rate=0.01, epochs=1000):
+    def __init__(self, learning_rate=0.01, epochs=100):
         self.weights = None
         self.bias = 0
         self.learning_rate = learning_rate
@@ -18,7 +18,7 @@ class Perceptron:
         for _ in range(self.epochs):
             for idx, x_i in enumerate(x):
                 prediction = self.predict(x_i)
-                update = self.learning_rate * (y_[idx] - prediction)
+                update = self.learning_rate * ((y_[idx] - prediction)**2)
                 self.weights += update * x_i
                 self.bias += update
 
